@@ -21,7 +21,7 @@ This repository contains the code and simulation screenshots for the Atmega 8 Pr
 
 ## Simulation Screenshots
 
-The `simulation_screenshots` folder contains screenshots of the Proteus simulations for each program.
+This repo also contains simluation screenshots
 
 ## Ignore File
 
