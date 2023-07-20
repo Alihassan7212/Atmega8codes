@@ -1,0 +1,27 @@
+#include <avr/io.h>
+#include <util/delay.h>
+int main(void) {
+    // Set Pin 2 of PORTD as input and Pin 0 of PORTB as output
+    DDRD &= ~(1 << DDD2);
+    DDRB |= (1 << DDB0);
+    DDRB |= (1 << DDB1);
+    DDRB |= (1 << DDB2);
+    DDRB |= (1 << DDB3);
+    while (1) {
+        // Check if Button (Pin 2 of PORTD) is pressed
+        if (PIND & (1 << PIND2)) {
+            // If the button is not pressed, turn off the LED
+            PORTB &= ~(1 << PORTB0);
+            PORTB &= ~(1 << PORTB1);
+            PORTB |= (1 << PORTB2);
+            PORTB |= (1 << PORTB3);
+        } else {
+            // If the button is pressed, turn on the LED
+            PORTB |= (1 << PORTB0);
+            PORTB |= (1 << PORTB1);
+            PORTB &= ~(1 << PORTB2);
+            PORTB &= ~(1 << PORTB3);
+        }
+    }
+    return 0;
+}
